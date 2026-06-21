@@ -1,0 +1,22 @@
+1]Compare the time complexity of linear and binary search algorithms. 
+Linear Search:
+Checks one element at a time.
+Time Complexity:
+Best: O(1)
+Average: O(n)
+Worst: O(n)
+
+Binary Search
+Requires sorted array.
+Divides search space into half repeatedly.
+Time Complexity:
+Best: O(1)
+Average: O(log n)
+Worst: O(log n)
+
+2]Discuss which algorithm is more suitable for your platform and why.
+Binary Search is more suitable for an e-commerce platform because its is 
+Faster for large datasets.
+Efficient searching.
+Requires products to be sorted by productId.
+Used in real-world applications where performance matters.

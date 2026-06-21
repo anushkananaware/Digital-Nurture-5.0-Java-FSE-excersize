@@ -1,0 +1,13 @@
+To predict the future amount, we need:
+Present Value: Current amount of money.
+Growth Rate: Percentage increase every year.
+Number of Years: How long the amount will grow.
+Formula
+
+Future Value = Previous Year's Value × (1 + Growth Rate)
+
+Base Case
+If the number of years becomes 0, no growth has happened. Therefore, the future value is simply the present value.
+
+Recursive Case
+If years are greater than 0, first calculate the value for the previous year and then multiply it by (1 + growth rate).

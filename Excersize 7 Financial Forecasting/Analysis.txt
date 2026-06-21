@@ -1,0 +1,36 @@
+Q1]Discuss the time complexity of your recursive algorithm.
+Time Complexity
+The recursive method makes one function call for each year.
+If the number of years is n, then the method is called n times.
+Therefore, the time complexity is:O(n)
+which means the running time increases linearly with the number of years.
+
+Space Complexity
+Each recursive call occupies memory in the call stack.
+Since there are n recursive calls, the space complexity is:O(n)
+
+
+Q2]Explain how to optimize the recursive solution to avoid excessive computation. step by step solution how to do if code present give full code and tell hiw to run
+The recursive approach creates many function calls, which use additional memory.
+To avoid this, we can use a loop instead of recursion.
+Optimized Iterative Method
+public static double calculateFutureValueOptimized(
+        double presentValue,
+        double growthRate,
+        int numberOfYears) {
+
+    double futureValue = presentValue;
+
+    for (int year = 1; year <= numberOfYears; year++) {
+        futureValue = futureValue * (1 + growthRate);
+    }
+
+    return futureValue;
+}
+
+Advantages of Optimization
+No recursive calls are made.
+Less memory is used.
+Faster for large values of years.
+Time Complexity :O(n)
+Space Complexity : O(1) because only one variable is used for storing the answer.
