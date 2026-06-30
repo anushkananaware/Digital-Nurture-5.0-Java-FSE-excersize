@@ -1,0 +1,15 @@
+JPA (Java Persistence API)
+JPA is a specification (a set of rules).
+It tells developers how to store Java objects in a database.
+It does not perform the database operations itself.
+It needs an implementation like Hibernate to work.
+
+Hibernate
+Hibernate is an ORM framework.
+It implements JPA, meaning it follows JPA's rules.
+It performs the actual database operations like Save, Update, Delete, and Fetch data.
+
+Spring Data JPA is a Spring framework built on top of JPA.
+It uses Hibernate (by default) behind the scenes.
+It reduces boilerplate code by providing ready-made methods like save(), findAll(), and deleteById().
+You write less code and development becomes easier.
