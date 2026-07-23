@@ -1,0 +1,262 @@
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~
+$ cd ~/GitDemo
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git pull origin main
+From https://github.com/anushkananaware/GitDemo
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git branch GitWork
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git checkout GitWork
+Switched to branch 'GitWork'
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (GitWork)
+$ echo "<message>Hello from GitWork Branch</message>" > hello.xml
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (GitWork)
+$ git status
+On branch GitWork
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hello.xml
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (GitWork)
+$ git add hello.xml
+warning: in the working copy of 'hello.xml', LF will be replaced by CRLF the next time Git touches it
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (GitWork)
+$ git commit -m "Added hello.xml in GitWork"
+[GitWork 1076f18] Added hello.xml in GitWork
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.xml
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (GitWork)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ echo "<message>Hello from MAIN Branch</message>" > hello.xml
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hello.xml
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git add hello.xml
+warning: in the working copy of 'hello.xml', LF will be replaced by CRLF the next time Git touches it
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git commit -m "Added hello.xml in main"
+[main cde20f5] Added hello.xml in main
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.xml
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git log --oneline --graph --decorate --all
+* cde20f5 (HEAD -> main) Added hello.xml in main
+| * 1076f18 (GitWork) Added hello.xml in GitWork
+|/
+* 4dd47b9 (origin/main) Added BranchDemo file
+* 7e16134 Added demo file in GitNewBranch
+* 45a7ce9 Added gitignore for log files and folders
+* 5f461e6 Initial commit
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git diff main GitWork
+diff --git a/hello.xml b/hello.xml
+index 5e687c6..234c289 100644
+--- a/hello.xml
++++ b/hello.xml
+@@ -1 +1 @@
+-<message>Hello from MAIN Branch</message>
++<message>Hello from GitWork Branch</message>
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git difftool main GitWork
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git merge GitWork
+Auto-merging hello.xml
+CONFLICT (add/add): Merge conflict in hello.xml
+Automatic merge failed; fix conflicts and then commit the result.
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main|MERGING)
+$ notepad hello.xml
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main|MERGING)
+$ git mergetool
+
+This message is displayed because 'merge.tool' is not configured.
+See 'git mergetool --tool-help' or 'git help config' for more details.
+'git mergetool' will now attempt to use one of the following tools:
+opendiff kdiff3 tkdiff xxdiff meld tortoisemerge gvimdiff diffuse diffmerge ecmerge p4merge araxis bc codecompare smerge emerge vimdiff nvimdiff
+Merging:
+hello.xml
+
+Normal merge conflict for 'hello.xml':
+  {local}: created file
+  {remote}: created file
+Hit return to start merge resolution tool (p4merge):
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main|MERGING)
+$ ^C
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main|MERGING)
+$ git mergetool
+
+This message is displayed because 'merge.tool' is not configured.
+See 'git mergetool --tool-help' or 'git help config' for more details.
+'git mergetool' will now attempt to use one of the following tools:
+opendiff kdiff3 tkdiff xxdiff meld tortoisemerge gvimdiff diffuse diffmerge ecmerge p4merge araxis bc codecompare smerge emerge vimdiff nvimdiff
+Merging:
+hello.xml
+
+Normal merge conflict for 'hello.xml':
+  {local}: created file
+  {remote}: created file
+Hit return to start merge resolution tool (p4merge):
+error: invalid path './hello_BASE_764.xml'
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main|MERGING)
+$ ^[[200~git status~
+bash: $'\E[200~git': command not found
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main|MERGING)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+        modified:   hello.xml
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hello.xml.orig
+        hello_BACKUP_686.xml
+        hello_BASE_686.xml
+        hello_LOCAL_686.xml
+        hello_REMOTE_686.xml
+
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main|MERGING)
+$ git add hello.xml
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main|MERGING)
+$ git commit -m "Resolved merge conflict"
+[main d175ade] Resolved merge conflict
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 3 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hello.xml.orig
+        hello_BACKUP_686.xml
+        hello_BASE_686.xml
+        hello_LOCAL_686.xml
+        hello_REMOTE_686.xml
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ notepad .gitignore
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git add .gitignore
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git commit -m "Added backup files to gitignore"
+[main a10b1db] Added backup files to gitignore
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git branch -a
+  GitWork
+* main
+  remotes/origin/main
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git branch -d GitWork
+Deleted branch GitWork (was 1076f18).
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git log --oneline --graph --decorate
+* a10b1db (HEAD -> main) Added backup files to gitignore
+*   d175ade Resolved merge conflict
+|\
+| * 1076f18 Added hello.xml in GitWork
+* | cde20f5 Added hello.xml in main
+|/
+* 4dd47b9 (origin/main) Added BranchDemo file
+* 7e16134 Added demo file in GitNewBranch
+* 45a7ce9 Added gitignore for log files and folders
+* 5f461e6 Initial commit
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git push origin main
+Enumerating objects: 12, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (10/10), 997 bytes | 498.00 KiB/s, done.
+Total 10 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (4/4), done.
+To https://github.com/anushkananaware/GitDemo.git
+   4dd47b9..a10b1db  main -> main
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hello.xml.orig
+        hello_BACKUP_686.xml
+        hello_BASE_686.xml
+        hello_LOCAL_686.xml
+        hello_REMOTE_686.xml
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ ^C
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$

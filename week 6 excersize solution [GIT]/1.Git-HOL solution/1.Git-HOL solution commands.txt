@@ -1,0 +1,91 @@
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~
+$ git --version
+git version 2.49.0.windows.1
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~
+$ git config --global user.name "Anushka Nanaware"
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~
+$ git config --global user.email "anushkananaware2@gmail.com"
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~
+$ git config --global --list
+user.email=anushkananaware2@gmail.com
+user.name=Anushka Nanaware
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~
+$ mkdir GitDemo
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~
+$ cd GitDemo
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo
+$ git init
+Initialized empty Git repository in C:/Users/anush/GitDemo/.git/
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ echo "Welcome to Git" > welcome.txt
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ ls
+welcome.txt
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        welcome.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git add welcome.txt
+warning: in the working copy of 'welcome.txt', LF will be replaced by CRLF the next time Git touches it
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git commit -m "Initial commit"
+[main (root-commit) 5f461e6] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 welcome.txt
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ ^C
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git status
+On branch main
+nothing to commit, working tree clean
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git log
+commit 5f461e671043d62759a5a14b2f2545fb2a4711dd (HEAD -> main)
+Author: Anushka Nanaware <anushkananaware2@gmail.com>
+Date:   Thu Jul 23 16:08:59 2026 +0530
+
+    Initial commit
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git remote add origin https://github.com/anushkananaware/GitDemo.git
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git remote -v
+origin  https://github.com/anushkananaware/GitDemo.git (fetch)
+origin  https://github.com/anushkananaware/GitDemo.git (push)
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git push -u origin main
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 235 bytes | 78.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/anushkananaware/GitDemo.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$

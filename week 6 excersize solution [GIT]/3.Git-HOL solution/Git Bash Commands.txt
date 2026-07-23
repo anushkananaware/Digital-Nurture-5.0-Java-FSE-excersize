@@ -1,0 +1,189 @@
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~
+$ cd ~/GitDemo
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git branch
+* main
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ ls
+demo.txt  error.log  log/  welcome.txt
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ ^[[200~p4merge~
+bash: $'\E[200~p4merge~': command not found
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ p4merge
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git push origin main
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 358 bytes | 179.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/anushkananaware/GitDemo.git
+   45a7ce9..7e16134  main -> main
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ ^[[200~git branch GitNewBranch~
+bash: $'\E[200~git': command not found
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git branch GitNewBranch
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git branch -a
+  GitNewBranch
+* main
+  remotes/origin/main
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git checkout GitNewBranch
+Switched to branch 'GitNewBranch'
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (GitNewBranch)
+$ echo "This is Git HOL Branching Lab" > BranchDemo.txt
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (GitNewBranch)
+$ git status
+On branch GitNewBranch
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        BranchDemo.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (GitNewBranch)
+$ git add BranchDemo.tx
+fatal: pathspec 'BranchDemo.tx' did not match any files
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (GitNewBranch)
+$ git commit -m "Added BranchDemo file"
+On branch GitNewBranch
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        BranchDemo.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (GitNewBranch)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git diff main GitNewBranch
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git config --global diff.tool p4merge
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git config --global difftool.prompt false
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git difftool main GitNewBranch
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ ^C
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git checkout GitNewBranch
+Switched to branch 'GitNewBranch'
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (GitNewBranch)
+$ git status
+On branch GitNewBranch
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        BranchDemo.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (GitNewBranch)
+$ git add BranchDemo.txt
+warning: in the working copy of 'BranchDemo.txt', LF will be replaced by CRLF the next time Git touches it
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (GitNewBranch)
+$ git commit -m "Added BranchDemo file"
+[GitNewBranch 4dd47b9] Added BranchDemo file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 BranchDemo.txt
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (GitNewBranch)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git diff main GitNewBranch
+diff --git a/BranchDemo.txt b/BranchDemo.txt
+new file mode 100644
+index 0000000..02a34ab
+--- /dev/null
++++ b/BranchDemo.txt
+@@ -0,0 +1 @@
++This is Git HOL Branching Lab
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git difftool main GitNewBranch
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git merge GitNewBranch
+Updating 7e16134..4dd47b9
+Fast-forward
+ BranchDemo.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 BranchDemo.txt
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git log --oneline --graph --decorate
+* 4dd47b9 (HEAD -> main, GitNewBranch) Added BranchDemo file
+* 7e16134 (origin/main) Added demo file in GitNewBranch
+* 45a7ce9 Added gitignore for log files and folders
+* 5f461e6 Initial commit
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git branch -d GitNewBranch
+Deleted branch GitNewBranch (was 4dd47b9).
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git push origin main
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 248 bytes | 248.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/anushkananaware/GitDemo.git
+   7e16134..4dd47b9  main -> main
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git merge GitNewBranch
+merge: GitNewBranch - not something we can merge
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ ^C
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$

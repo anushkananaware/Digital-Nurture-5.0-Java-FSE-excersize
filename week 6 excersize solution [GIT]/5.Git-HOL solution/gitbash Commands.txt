@@ -1,0 +1,76 @@
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~
+$ cd ~/GitDemo
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hello.xml.orig
+        hello_BACKUP_686.xml
+        hello_BASE_686.xml
+        hello_LOCAL_686.xml
+        hello_REMOTE_686.xml
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git branch -a
+* main
+  remotes/origin/main
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git pull origin main
+From https://github.com/anushkananaware/GitDemo
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git push origin main
+Everything up-to-date
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ ^C
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ rm hello.xml.orig
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ rm hello_BACKUP_686.xml
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ rm hello_BASE_686.xml
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ rm hello_LOCAL_686.xml
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ rm hello_REMOTE_686.xml
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git branch -a
+* main
+  remotes/origin/main
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git pull origin main
+From https://github.com/anushkananaware/GitDemo
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$ git push origin main
+Everything up-to-date
+
+anush@LAPTOP-2SUHH1LK MINGW64 ~/GitDemo (main)
+$
